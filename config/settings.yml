@@ -1,0 +1,40 @@
+subscription_limits_enabled:
+  default: true
+  type: bool
+  description: "Enable subscription-based post and image limits"
+
+basic_max_posts:
+  default: 1
+  type: integer
+  min: 0
+  description: "Max number of posts per month for Basic users"
+
+premium_max_posts:
+  default: 3
+  type: integer
+  min: 0
+  description: "Max number of posts per month for Premium users"
+
+elite_max_posts:
+  default: 9999
+  type: integer
+  min: 0
+  description: "Max number of posts per month for Elite users"
+
+basic_max_images:
+  default: 3
+  type: integer
+  min: 0
+  description: "Max number of images per post for Basic users"
+
+premium_max_images:
+  default: 5
+  type: integer
+  min: 0
+  description: "Max number of images per post for Premium users"
+
+elite_max_images:
+  default: 9999
+  type: integer
+  min: 0
+  description: "Max number of images per post for Elite users"
