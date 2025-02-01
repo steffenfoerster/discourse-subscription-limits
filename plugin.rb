@@ -14,16 +14,49 @@ enabled_site_setting :subscription_limits_enabled
 
 enabled_site_setting :subscription_limits_enabled
 
-# Register site settings so admins can change limits in the UI
-register_integer_setting :basic_max_posts, default: 1, min: 0
-register_integer_setting :premium_max_posts, default: 3, min: 0
-register_integer_setting :elite_max_posts, default: 9999, min: 0
-
-register_integer_setting :basic_max_images, default: 3, min: 0
-register_integer_setting :premium_max_images, default: 5, min: 0
-register_integer_setting :elite_max_images, default: 9999, min: 0
-
 after_initialize do
+  SiteSetting::Definition.create!(
+    name: "basic_max_posts",
+    data_type: SiteSetting::TypeInteger,
+    default: 1,
+    min: 0
+  )
+
+  SiteSetting::Definition.create!(
+    name: "premium_max_posts",
+    data_type: SiteSetting::TypeInteger,
+    default: 3,
+    min: 0
+  )
+
+  SiteSetting::Definition.create!(
+    name: "elite_max_posts",
+    data_type: SiteSetting::TypeInteger,
+    default: 9999,
+    min: 0
+  )
+
+  SiteSetting::Definition.create!(
+    name: "basic_max_images",
+    data_type: SiteSetting::TypeInteger,
+    default: 3,
+    min: 0
+  )
+
+  SiteSetting::Definition.create!(
+    name: "premium_max_images",
+    data_type: SiteSetting::TypeInteger,
+    default: 5,
+    min: 0
+  )
+
+  SiteSetting::Definition.create!(
+    name: "elite_max_images",
+    data_type: SiteSetting::TypeInteger,
+    default: 9999,
+    min: 0
+  )
+
   module ::SubscriptionLimits
     class PostValidator
       def self.can_post?(user, category)
